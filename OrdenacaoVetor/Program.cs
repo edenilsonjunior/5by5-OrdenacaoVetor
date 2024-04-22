@@ -11,7 +11,7 @@
  */
 
 
-Console.WriteLine("=====Numeros pares e impares=====");
+Console.WriteLine("=====Ordenação de vetor=====");
 
 int size = 5;
 int[] vetor = new int[size];
@@ -20,7 +20,7 @@ int temp = 0;
 
 for(int i = 0; i < size; i++)
 {
-    Console.Write($"Digite o {i+1}o numero: ");
+    Console.Write($"Array[{i}]=");
     vetor[i] = int.Parse(Console.ReadLine());
 }
 
