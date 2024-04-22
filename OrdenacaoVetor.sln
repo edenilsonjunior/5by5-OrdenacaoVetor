@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdenacaoVetor", "OrdenacaoVetor\OrdenacaoVetor.csproj", "{81A41904-D550-4293-8B8F-5A051B3C33A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81A41904-D550-4293-8B8F-5A051B3C33A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A41904-D550-4293-8B8F-5A051B3C33A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A41904-D550-4293-8B8F-5A051B3C33A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A41904-D550-4293-8B8F-5A051B3C33A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7ACD68D1-513C-48B0-9450-DD0DEF354323}
+	EndGlobalSection
+EndGlobal
