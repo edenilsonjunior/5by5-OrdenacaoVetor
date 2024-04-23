@@ -10,39 +10,78 @@
     um loop interno que compara começando desse indice inicial e indo até size-1
  */
 
-
 Console.WriteLine("=====Ordenação de vetor=====");
 
-int size = 5;
+int size = 10;
 int[] vetor = new int[size];
 int[] ordenado = new int[size];
-int temp = 0;
+int temp;
 
-for(int i = 0; i < size; i++)
-{
-    Console.Write($"Array[{i}]=");
-    vetor[i] = int.Parse(Console.ReadLine());
-}
 
-for(int i = 0; i < size; i++)
+for (int i = 0; i < size; i++)
 {
-    ordenado[i] = vetor[i]; 
+    vetor[i] = new Random().Next(0, 100);
+    ordenado[i] = vetor[i];
 }
 
 
-// ordenacao do segundo vetor:
-for(int i =0; i < size; i++)
+// bubble sort mas que vem ordenando de tras pra frente
+for (int i = 0; i < size; i++)
 {
-    for (int j = 0; j < size-1; j++)
+    for (int j = i + 1; j < size; j++)
     {
-        if(ordenado[j] > ordenado[j + 1])
+        if (ordenado[i] > ordenado[j])
         {
-            temp = ordenado[j];
-            ordenado[j] = ordenado[j + 1];
-            ordenado[j+1] = temp;
+            temp = ordenado[i];
+            ordenado[i] = ordenado[j];
+            ordenado[j] = temp;
         }
     }
 }
+
+
+// selection sort
+/*int menor;
+for (int i = 0; i < size; i++)
+{
+    menor = i;
+
+    for (int j = i + 1; j < size; j++)
+    {
+        if (ordenado[menor] > ordenado[j])
+        {
+            menor = j;
+        }
+    }
+
+    temp = ordenado[i];
+    ordenado[i] = ordenado[menor];
+    ordenado[menor] = temp;
+
+    for (int x = 0; x < size; x++)
+    {
+        Console.Write($"{ordenado[x]} ");
+    }
+    Console.WriteLine();
+}*/
+
+
+// bubble sort
+/*bool trocou = true;
+for (int i = 0; i < size && trocou; i++)
+{
+    trocou = false;
+    for (int j = 0; j < size - (i + 1); j++)
+    {
+        if (ordenado[j] > ordenado[j + 1])
+        {
+            temp = ordenado[j];
+            ordenado[j] = ordenado[j + 1];
+            ordenado[j + 1] = temp;
+            trocou = true;
+        }
+    }
+}*/
 
 
 Console.WriteLine("=============================");
