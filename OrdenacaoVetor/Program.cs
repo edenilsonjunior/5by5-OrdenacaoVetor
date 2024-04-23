@@ -1,34 +1,61 @@
 ﻿/*
- 3- Faça um programa que leia 5 numeros e guarde-os em um vetor e ordene-os de forma crescente em um novo vetor
- 
- Logica empregada no programa:
-    1- comparacao de pares do valor atual com o valor seguinte
-    2- se o valor atual for maior que o valor seguinte, os valores sao trocados
-    3- Percorrer o vetor no tanto de vezes conforme o tamanho dele
-    
-    A ordenacao é feita com dois for-loops, um loop externo que movimenta o indice inicial e
-    um loop interno que compara começando desse indice inicial e indo até size-1
+ 3- Faça um programa que leia 5 ou mais numeros(a escolha) numeros e guarde-os em um vetor e, faça as operações:
+
+    1- Crie um novo vetor a partir do vetor original que esta ordenado e sem repetidos
+    2- Crie um terceiro vetor a partir do segundo vetor e ordene ele ao contrario
+    3- Não modifique o vetor original
  */
 
 Console.WriteLine("=====Ordenação de vetor=====");
 
-int size = 10;
+// Declaracao das variaveis
+int size = 40, temp = 0, sizeVetorOrdenado = 0;
+
 int[] vetor = new int[size];
 int[] ordenado = new int[size];
-int temp;
+int[] contrario = new int[size];
 
 
+// Populando o vetor original e o segundo vetor(sem repetir)
 for (int i = 0; i < size; i++)
 {
-    vetor[i] = new Random().Next(0, 100);
-    ordenado[i] = vetor[i];
+    vetor[i] = new Random().Next(0, 5);
+
+    if (i == 0)
+    {
+        ordenado[sizeVetorOrdenado] = vetor[i];
+        sizeVetorOrdenado++;
+    }
+    else
+    {
+        bool repetido = false;
+        for (int j = 0; j < sizeVetorOrdenado; j++)
+        {
+            if (ordenado[j] == vetor[i])
+            {
+                repetido = true;
+            }
+        }
+
+        if (!repetido)
+        {
+            ordenado[sizeVetorOrdenado] = vetor[i];
+            sizeVetorOrdenado++;
+        }
+    }
+}
+
+// Copiando o segundo vetor para o terceiro vetor
+for (int i = 0; i < sizeVetorOrdenado; i++)
+{
+    contrario[i] = ordenado[i];
 }
 
 
-// bubble sort mas que vem ordenando de tras pra frente
-for (int i = 0; i < size; i++)
+// Organizando o segundo vetor que nao possui itens ordenados
+for (int i = 0; i < sizeVetorOrdenado; i++)
 {
-    for (int j = i + 1; j < size; j++)
+    for (int j = i + 1; j < sizeVetorOrdenado; j++)
     {
         if (ordenado[i] > ordenado[j])
         {
@@ -40,68 +67,48 @@ for (int i = 0; i < size; i++)
 }
 
 
-// selection sort
-/*int menor;
-for (int i = 0; i < size; i++)
-{
-    menor = i;
 
-    for (int j = i + 1; j < size; j++)
+// Organizando o terceiro vetor para ser organizado ao contrario
+for (int i = 0; i < sizeVetorOrdenado; i++)
+{
+    for (int j = i + 1; j < sizeVetorOrdenado; j++)
     {
-        if (ordenado[menor] > ordenado[j])
+        if (contrario[i] < contrario[j])
         {
-            menor = j;
+            temp = contrario[i];
+            contrario[i] = contrario[j];
+            contrario[j] = temp;
         }
     }
-
-    temp = ordenado[i];
-    ordenado[i] = ordenado[menor];
-    ordenado[menor] = temp;
-
-    for (int x = 0; x < size; x++)
-    {
-        Console.Write($"{ordenado[x]} ");
-    }
-    Console.WriteLine();
-}*/
-
-
-// bubble sort
-/*bool trocou = true;
-for (int i = 0; i < size && trocou; i++)
-{
-    trocou = false;
-    for (int j = 0; j < size - (i + 1); j++)
-    {
-        if (ordenado[j] > ordenado[j + 1])
-        {
-            temp = ordenado[j];
-            ordenado[j] = ordenado[j + 1];
-            ordenado[j + 1] = temp;
-            trocou = true;
-        }
-    }
-}*/
+}
 
 
 Console.WriteLine("=============================");
 Console.WriteLine("Vetor Original: ");
 for (int i = 0; i < size; i++)
 {
-    Console.WriteLine($"Array[{i}]={vetor[i]}");
+    //Console.WriteLine($"Array[{i}]={vetor[i]}");
+    Console.Write($"{vetor[i]} ");
+
 }
 
 
-Console.WriteLine("=============================");
+Console.WriteLine("\n=============================");
 Console.WriteLine("Vetor Ordenado: ");
-for (int i = 0; i < size; i++)
+for (int i = 0; i < sizeVetorOrdenado; i++)
 {
-    Console.WriteLine($"Array[{i}]={ordenado[i]}");
+    Console.Write($"{ordenado[i]} ");
 }
 
 
-Console.WriteLine("=============================");
+Console.WriteLine("\n=============================");
+Console.WriteLine("Vetor Ordenado ao contrario: ");
+for (int i = 0; i < sizeVetorOrdenado; i++)
+{
+    Console.Write($"{contrario[i]} ");
+}
 
 
+Console.WriteLine("\n=============================");
 Console.Write("\nDigite qualquer tecla para sair: ");
 Console.ReadKey();
