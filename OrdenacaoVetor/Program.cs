@@ -9,7 +9,7 @@
 Console.WriteLine("=====Ordenação de vetor=====");
 
 // Declaracao das variaveis
-int size = 40, temp = 0, sizeVetorOrdenado = 0;
+int size = 15, sizeVetorOrdenado = 0, temp = 0;
 
 int[] vetor = new int[size];
 int[] ordenado = new int[size];
@@ -44,6 +44,7 @@ for (int i = 0; i < size; i++)
         }
     }
 }
+
 
 // Copiando o segundo vetor para o terceiro vetor
 for (int i = 0; i < sizeVetorOrdenado; i++)
@@ -87,9 +88,7 @@ Console.WriteLine("=============================");
 Console.WriteLine("Vetor Original: ");
 for (int i = 0; i < size; i++)
 {
-    //Console.WriteLine($"Array[{i}]={vetor[i]}");
     Console.Write($"{vetor[i]} ");
-
 }
 
 
